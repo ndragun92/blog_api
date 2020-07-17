@@ -44,7 +44,7 @@ module.exports = function (existingResponse, language) {
     }
   }
 
-  // add custom response message option
+  // add custom response message option test
   if (typeof data === 'object' && data._data) {
     data = data._data
     delete data._data

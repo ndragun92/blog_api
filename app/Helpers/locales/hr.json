@@ -1,0 +1,7 @@
+{
+  "auth": {
+    "register": {
+      "success": "Uspješno ste registrirani!"
+    }
+  }
+}

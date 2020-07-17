@@ -1,0 +1,1547 @@
+{
+	"info": {
+		"_postman_id": "b657e3ab-0717-471c-8790-416f8406dbc0",
+		"name": "JOURNEY CMS BACKEND ADONIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "{{Referer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"email\": \"admin@admin.com\",\n    \"nickname\": \"admin\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{version}}/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+								"exec": [
+									"var data = pm.response.json();\r",
+									"pm.environment.set(\"token\", data.data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "{{Referer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{version}}/auth/loginAdmin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"loginAdmin"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "{{Referer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/{{version}}/user/profile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{version}}",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cms",
+			"item": [
+				{
+					"name": "Pages",
+					"item": [
+						{
+							"name": "find page",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/pages?type=all&published=published",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"pages"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "all"
+										},
+										{
+											"key": "keyword",
+											"value": "post",
+											"disabled": true
+										},
+										{
+											"key": "published",
+											"value": "published"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create page",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Homepage\",\n    \"slug\": \"homepage\",\n    \"searchable\": true,\n    \"visibility\": \"public\",\n    \"type\": \"page\",\n    \"published\": \"published\",\n    \"redirect\": {\n    \t\"enabled\": true,\n    \t\"href\": \"https://google.com\"\n    },\n    \"meta\": {\n    \t\"title\": \"Meta title\",\n    \t\"description\": \"Meta description\"\n    },\n    \"sections\": [],\n    \"featured_images\": [],\n    \"body\": \"Body text\",\n    \"publish_date\": \"02.02.2020\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/page",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"page"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get page",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/pages/4",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"pages",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "translate page",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Homepage on DE\",\n    \"meta\": {\n    \t\"title\": \"Meta title\",\n    \t\"description\": \"Meta description\"\n    },\n    \"translateTo\": \"de\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/page/translate/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"page",
+										"translate",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update page",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"HomepageUpdate\",\n    \"slug\": \"homepage\",\n    \"searchable\": true,\n    \"visibility\": \"public\",\n    \"published\": \"published\",\n    \"redirect\": {\n    \t\"enabled\": true,\n    \t\"href\": \"https://google.com\"\n    },\n    \"meta\": {\n    \t\"title\": \"Meta title\",\n    \t\"description\": \"Meta description\"\n    },\n    \"sections\": [],\n    \"featured_images\": [],\n    \"body\": \"Body text\",\n    \"publish_date\": \"2020-09-02T00:00:00+02:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/page/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"page",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete page",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/page/40",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"page",
+										"40"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get page by slug and type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/page/homepage/page",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"page",
+										"homepage",
+										"page"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Settings",
+					"item": [
+						{
+							"name": "find",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/settings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"settings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create/update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"allowed_languages\": [\"hr\", \"de\"],\n\t\"default_language\": \"en\",\n\t\"maintenance\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/settings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"settings"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "find categories",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "gda",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Elements",
+					"item": [
+						{
+							"name": "find elements",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/elements",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"elements"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "gda",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get element by name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/elementByName/navigation-main",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"elementByName",
+										"navigation-main"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "gda",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get element by id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/elements/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"elements",
+										"1"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "gda",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"navigation-main\",\r\n    \"data\": {\r\n        \"links\": [1,2,3]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/element",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"element"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n        \"links\": [1,2,3,4]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/element/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"element",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Referer",
+										"value": "{{Referer}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/{{version}}/cms/element/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{version}}",
+										"cms",
+										"element",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Media",
+			"item": [
+				{
+					"name": "upload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "{{Referer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image[]",
+									"type": "file",
+									"src": "/C:/Users/neman/Downloads/download.jpg"
+								},
+								{
+									"key": "title",
+									"value": "my title",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "my description",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "cms",
+									"type": "text"
+								},
+								{
+									"key": "cropSizes",
+									"value": "[400, 1200, 75]",
+									"type": "text"
+								},
+								{
+									"key": "cropType",
+									"value": "cover",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{version}}/media/internal/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{version}}",
+								"media",
+								"internal",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "internal upload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "{{Referer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image[]",
+									"type": "file",
+									"src": "/C:/Users/neman/Downloads/5d820b97a2d49b001487ee94_5d7bbf3088f3c00014425bb5_ReimaginedSquare.jpg"
+								},
+								{
+									"key": "title",
+									"value": "my title",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "my description",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "cms",
+									"type": "text"
+								},
+								{
+									"key": "cropSizes",
+									"value": "[400, 1200, 75]",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "cropType",
+									"value": "cover",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{version}}/media/internal/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{version}}",
+								"media",
+								"internal",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "internal find",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "{{Referer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/{{version}}/media/internal?limit=5&page=1&type=cms",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{version}}",
+								"media",
+								"internal"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "cms"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "internal delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfad5f7a-053c-410f-b9dc-bc52e9fbae2b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "{{Referer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/{{version}}/media/internal/43",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{version}}",
+								"media",
+								"internal",
+								"43"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

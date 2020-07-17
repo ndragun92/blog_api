@@ -1,0 +1,153 @@
+{
+  "auth": {
+    "register": {
+      "success": "Successfully registered!",
+      "emailExists": "Email is already in use!",
+      "usernameExists": "Username is already in use!",
+      "nicknameExists": "Nickname is already in use!"
+    },
+    "login": {
+      "success": "Successfully logged in!",
+      "incorrect": "Wrong email or username!"
+    }
+  },
+  "profile": {
+    "get": {
+      "success": "Successfully got user details!"
+    }
+  },
+  "cms": {
+    "settings": {
+      "find": {
+        "success": "Successfully got settings!",
+        "error": "Couldn't find settings!"
+      },
+      "update": {
+        "success": "Successfully updated settings!"
+      }
+    },
+    "page": {
+      "find": {
+        "success": "Successfully got pages!",
+        "error": "Couldn't find page!",
+        "errorTranslation": "Couldn't find page translation"
+      },
+      "get": {
+        "success": "Successfully got page!"
+      },
+      "create": {
+        "success": "Successfully created page!",
+        "error": {
+          "exists": "Page already exists!"
+        }
+      },
+      "translate": {
+        "success": "Successfully translated page!"
+      },
+      "patch": {
+        "success": "Successfully patched page!"
+      },
+      "delete": {
+        "success": "Successfully deleted page!"
+      }
+    },
+    "post": {
+      "find": {
+        "success": "Successfully got posts!",
+        "error": "Couldn't find post!"
+      },
+      "get": {
+        "success": "Successfully got post!"
+      },
+      "create": {
+        "success": "Successfully created post!",
+        "error": {
+          "exists": "Post already exists!"
+        }
+      },
+      "translate": {
+        "success": "Successfully translated post!"
+      },
+      "patch": {
+        "success": "Successfully patched post!"
+      },
+      "delete": {
+        "success": "Successfully deleted post!"
+      }
+    },
+    "category": {
+      "find": {
+        "success": "Successfully got categories!"
+      },
+      "get": {
+        "success": "Successfully got category!"
+      },
+      "create": {
+        "success": "Successfully created category!",
+        "error": {
+          "exists": "Category already exists!"
+        }
+      },
+      "translate": {
+        "success": "Successfully translated category!"
+      },
+      "patch": {
+        "success": "Successfully patched category!"
+      },
+      "delete": {
+        "success": "Successfully deleted category!"
+      }
+    },
+    "upload": {
+      "error": "Couldn't upload image!",
+      "fail": "Please upload an image!"
+    },
+    "sections": {
+      "patch": {
+        "success": "Successfully patched sections!"
+      }
+    },
+    "element": {
+      "find": {
+        "success": "Successfully got elements!"
+      },
+      "get": {
+        "success": "Successfully got element!"
+      },
+      "create": {
+        "success": "Successfully created element!",
+        "error": {
+          "exists": "Element already exists!"
+        }
+      },
+      "patch": {
+        "success": "Successfully patched element!"
+      },
+      "delete": {
+        "success": "Successfully deleted element!"
+      }
+    }
+  },
+  "media": {
+    "find": {
+      "success": "Successfully got media!",
+      "error": "Couldn't find media!"
+    },
+    "error": {
+      "maxSize": "Max file size is 10 MB!",
+      "upload": "Image couldn't be uploaded!"
+    },
+    "upload": {
+      "success": "Successfully uploaded file!"
+    },
+    "delete": {
+      "success": "Successfully deleted file!",
+      "error": "Couldn't deleted file!"
+    }
+  },
+  "validations": {
+    "required": "Field is required!",
+    "invalid": "Field is invalid!",
+    "translateTo": "translateTo is required!"
+  }
+}

@@ -31,7 +31,7 @@
     "cloudinary": "^1.22.0",
     "flat": "^5.0.0",
     "mysql": "^2.18.1",
-    "sharp": "^0.25.4"
+    "sharp": "^0.30.5"
   },
   "devDependencies": {},
   "autoload": {

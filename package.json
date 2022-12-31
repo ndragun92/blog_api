@@ -29,7 +29,7 @@
     "@adonisjs/validator": "^5.0.6",
     "adonis-bumblebee": "^2.2.0",
     "cloudinary": "^1.22.0",
-    "flat": "^5.0.0",
+    "flat": "^5.0.1",
     "mysql": "^2.18.1",
     "sharp": "^0.25.4"
   },
